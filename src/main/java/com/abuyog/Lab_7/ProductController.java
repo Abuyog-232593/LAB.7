@@ -20,7 +20,6 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    // READ ONE — GET /api/products/{id}
     @GetMapping("/{id}")
     public ResponseEntity<?> getProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
@@ -31,14 +30,12 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
-    // CREATE — POST /api/products
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product created = productService.createProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
-    // UPDATE — PUT /api/products/{id}
     @PutMapping("/{id}")
     public ResponseEntity<?> updateProduct(
             @PathVariable Long id,
@@ -53,7 +50,6 @@ public class ProductController {
         return ResponseEntity.ok(updated);
     }
 
-    // DELETE — DELETE /api/products/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable Long id) {
         boolean deleted = productService.deleteProduct(id);

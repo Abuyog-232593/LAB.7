@@ -1,0 +1,19 @@
+Laboratory 7 - Product Inventory API
+
+1) POST endpoint (create product)
+   - HTTP Verb: POST
+   - Full URL path: http://localhost:8080/api/products
+   - Expected success status code: 201 Created
+
+2) GET by ID for a non-existent item:
+   - Example URL path: http://localhost:8080/api/products/999
+   - Expected status code: 404 Not Found
+
+3) Notes:
+   - Server default: http://localhost:8080
+   - Use the provided ProductController with endpoints:
+       GET    /api/products           -> 200 OK
+       GET    /api/products/{id}      -> 200 OK or 404 Not Found
+       POST   /api/products           -> 201 Created
+       PUT    /api/products/{id}      -> 200 OK or 404 Not Found
+       DELETE /api/products/{id}      -> 200 OK (or 204 No Content)
