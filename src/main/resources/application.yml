@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: graphql-example
+  graphql:
+    graphiql:
+      path: /graphiql
+      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/testdb
+    username: # Place the username of your db
+    password: # Place the password for your db
+
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: 'update'
+
+
+# spring.datasource.url=jdbc:mysql://localhost:3306/testdb

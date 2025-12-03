@@ -5,34 +5,32 @@ type Book {
     author: Author!
 }
 
-type Author {a
+type Author {
     authId: ID!
     authName: String!
+    authoredBooks: [Book!]!
 }
 
 type Query {
     allBooks: [Book!]!
-    allTitles: [String]
-    findBooksById(id: Int): [Book!]!
     bookById(id: ID!): Book
+    findByAuthor(author: AuthorInput!): [Book!]!
 }
 
 
 type Mutation {
-    addBook(title: String!, pages: Int, authorId: ID!): Book!
-    addBookUsingInputType(newBook: NewBook): Book
-    updateTitle(id: ID!, title: String!): Book!
+    addBookUsingInputType(newBook: NewBook!): Book
+    updateBook(bookId: ID!, updatedBook: NewBook!): Book!
     deleteBook(id: ID!): String
 }
 
-
-type Subscription {
-    reactiveFetch: [Book]!
+input NewBook {
+    title: String!
+    pages: Int
+    authorId: ID!
 }
 
-input NewBook {
-    isbn: ID!
-    title: String
-    datePublished: String
+input AuthorInput {
     authId: ID!
+    authName: String!
 }
